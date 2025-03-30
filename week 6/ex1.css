@@ -1,0 +1,46 @@
+﻿h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2, h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+.highlight {
+    background-color: yellow;
+    display: block;
+    width: fit-content;
+    padding: 2px 5px;
+}
+
+.red-text {
+    color: red;
+    font-weight: bold;
+    background-color: yellow;
+    display: block;
+    width: fit-content;
+    padding: 2px 5px;
+}
+
+.black-background {
+    background-color: black;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    width: fit-content;
+}
+
+em {
+    display: block;
+    text-align: center;
+    font-style: italic;
+}

@@ -1,0 +1,28 @@
+﻿body {
+    text-align: center;
+}
+
+.container {
+    width: 400px;
+    margin: 0 auto; 
+    text-align: left; 
+}
+
+div {
+    width: 100%;
+}
+
+div:nth-child(even) {
+    background: #ff9; 
+}
+
+div:nth-child(odd) {
+    background: #f9f9f9; 
+}
+
+p {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 15px;
+}
