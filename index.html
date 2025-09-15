@@ -1,4 +1,124 @@
-﻿Đây là trang GitHub Pages cá nhân của tôi
-aaaaa
-bbbbb
-Nguyễn Duy Tùng
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsletter Subscription</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      max-width: 500px;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      align-self: center;
+    }
+    input[type="text"],
+    input[type="email"] {
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .full-width {
+      grid-column: 1 / -1;
+    }
+    .success-message {
+      color: green;
+      margin-top: 1rem;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Subscribe to our Newsletter</h2>
+  <form id="subscriptionForm">
+    <label for="name">Full Name:</label>
+    <div>
+      <input type="text" id="name" name="name" />
+      <div id="nameError" class="error"></div>
+    </div>
+
+    <label for="email">Email:</label>
+    <div>
+      <input type="email" id="email" name="email" />
+      <div id="emailError" class="error"></div>
+    </div>
+
+    <label>Subscription Type:</label>
+    <div>
+      <input type="radio" name="subscription" value="monthly" checked /> Monthly
+      <input type="radio" name="subscription" value="yearly" /> Yearly
+    </div>
+
+    <label>Interests:</label>
+    <div>
+      <label><input type="checkbox" name="interests" value="tech" /> Tech</label><br />
+      <label><input type="checkbox" name="interests" value="news" /> News</label><br />
+      <label><input type="checkbox" name="interests" value="offers" /> Offers</label>
+      <div id="interestError" class="error"></div>
+    </div>
+
+    <div class="full-width">
+      <button type="submit">Subscribe</button>
+    </div>
+  </form>
+
+  <div id="successMessage" class="success-message"></div>
+
+  <script>
+    document.getElementById('subscriptionForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let isValid = true;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const interests = document.querySelectorAll('input[name="interests"]:checked');
+      
+      // Reset error messages
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('interestError').textContent = '';
+      document.getElementById('successMessage').textContent = '';
+
+      // Validate name
+      if (name.length < 3) {
+        document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
+        isValid = false;
+      }
+
+      // Validate email
+      if (!/^[^@]+@[^@]+\.[a-z]{2,}$/i.test(email)) {
+        document.getElementById('emailError').textContent = 'Enter a valid email address.';
+        isValid = false;
+      }
+
+      // Validate interests
+      if (interests.length === 0) {
+        document.getElementById('interestError').textContent = 'Please select at least one interest.';
+        isValid = false;
+      }
+
+      // If valid, show success message
+      if (isValid) {
+        document.getElementById('successMessage').textContent = 'Thank you for subscribing!';
+        document.getElementById('subscriptionForm').reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

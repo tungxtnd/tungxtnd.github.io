@@ -18,6 +18,7 @@ ul {
     display: block;
     width: fit-content;
     padding: 2px 5px;
+    
 }
 
 .red-text {
@@ -38,6 +39,7 @@ ul {
     display: block;
     width: fit-content;
 }
+
 
 em {
     display: block;
